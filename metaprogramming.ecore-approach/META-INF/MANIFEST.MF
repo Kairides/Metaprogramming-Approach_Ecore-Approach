@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Contribution
+Bundle-SymbolicName: metaprogramming.ecore-approach;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: metaprogramming.contribution
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: metaprogramming.extensionpoint;bundle-version="1.0.0",
+ org.eclipse.core.runtime;bundle-version="3.14.0",
+ org.eclipse.gemoc.dsl.model,
+ org.eclipse.emf.common,
+ org.eclipse.core.resources,
+ org.eclipse.emf.ecore,
+ org.eclipse.ocl.ecore
+Export-Package: metaprogramming.ecoreapproach
