@@ -7,8 +7,11 @@ import metaprogramming.extensionpoint.Severity;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -64,19 +67,27 @@ public class EcoreRule implements IRule{
 			try {
 				
 				res = rs.getResource(uri, true);
-				List<EObject> test = res.getContents().get(0).eContents();
 				
-				ArrayList<String> featuresNames = new ArrayList<>();
-				for (EObject e : test) {
-					featuresNames.add(e.eContainingFeature().getName());
+				TreeIterator<EObject> tree = res.getAllContents();
+				Boolean hasModel = false;
+				List<EClassifier> classes = new ArrayList<>();
+				
+				while(tree.hasNext()) {
+					EObject node = tree.next();
+					if(node instanceof EPackage) {
+						hasModel = !hasModel;
+						EPackage node2 = (EPackage) node;
+						classes = node2.getEClassifiers();
+					}
+					System.out.println(node.getClass().toString());
 				}
 				
-				if(!featuresNames.contains("eAnnotations")) {
+				if(!hasModel) {
 					return new Message("The ecore file does not contain an ecore model", Severity.WARNING);
 				}
 				
-				if(!featuresNames.contains("eClassifiers")) {
-					return new Message("No class found in the ecore file.", Severity.WARNING);
+				if(classes.isEmpty()) {
+					return (new Message("No classes in the ecore file", Severity.WARNING));
 				}
 				
 			}catch (RuntimeException e) {
