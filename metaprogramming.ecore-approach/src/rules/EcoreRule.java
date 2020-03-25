@@ -79,7 +79,6 @@ public class EcoreRule implements IRule{
 						EPackage node2 = (EPackage) node;
 						classes = node2.getEClassifiers();
 					}
-					System.out.println(node.getClass().toString());
 				}
 				
 				if(!hasModel) {
