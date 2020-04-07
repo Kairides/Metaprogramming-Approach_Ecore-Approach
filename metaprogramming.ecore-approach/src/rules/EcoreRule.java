@@ -1,9 +1,5 @@
 package rules;
 
-import metaprogramming.extensionpoint.IRule;
-import metaprogramming.extensionpoint.Message;
-import metaprogramming.extensionpoint.Severity;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +13,9 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gemoc.dsl.Dsl;
 import org.eclipse.gemoc.dsl.Entry;
+import org.eclipse.gemoc.dsl.approach.IRule;
+import org.eclipse.gemoc.dsl.approach.Message;
+import org.eclipse.gemoc.dsl.approach.Severity;
 
 public class EcoreRule implements IRule{ 
 	
