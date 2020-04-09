@@ -2,11 +2,10 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="metaprogramming.extensionpoint">
-      <approach
-            name="Ecore Approach"
-            validator="metaprogramming.ecoreapproach.EcoreRuleProvider">
-      </approach>
+         point="org.eclipse.gemoc.gemoc_language_workbench.metaprog">
+         <approach
+         		name="ecore"
+         		validator="metaprogramming.ecoreapproach.EcoreRuleProvider">
+         </approach>
    </extension>
-
 </plugin>
