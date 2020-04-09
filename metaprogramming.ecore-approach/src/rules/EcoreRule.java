@@ -13,14 +13,18 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gemoc.dsl.Dsl;
 import org.eclipse.gemoc.dsl.Entry;
-import org.eclipse.gemoc.dsl.approach.IRule;
-import org.eclipse.gemoc.dsl.approach.Message;
-import org.eclipse.gemoc.dsl.approach.Severity;
+import org.eclipse.gemoc.xdsmlframework.api.extensions.metaprog.IRule;
+import org.eclipse.gemoc.xdsmlframework.api.extensions.metaprog.Severity;
+import org.eclipse.gemoc.xdsmlframework.api.extensions.metaprog.Message;
 
+/**
+ * Validation rule used by meta-programming approaches that uses Ecore meta-models
+ * 
+ * @author GUEGUEN Ronan
+ *
+ */
 public class EcoreRule implements IRule{ 
-	
-	public EcoreRule() {}
-	
+		
 	/*
 	 * The method checks for the presence of an "ecore" entry in the dsl file.
 	 * (non-Javadoc)
